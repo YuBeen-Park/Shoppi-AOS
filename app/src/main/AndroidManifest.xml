@@ -15,18 +15,24 @@
         android:theme="@style/Theme.Shoppi"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".presentation.ProductDetailActivity"
-            android:exported="true">
+        <activity android:name=".presentation.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Shoppi.Splash">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.ProductDetailActivity"
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false">

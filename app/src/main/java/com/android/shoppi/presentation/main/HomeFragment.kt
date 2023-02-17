@@ -5,12 +5,31 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.android.shoppi.R
 import com.android.shoppi.databinding.FragmentHomeBinding
+import com.android.shoppi.util.AssetLoader
 import com.android.shoppi.util.binding.BindingFragment
+import org.json.JSONObject
 
 class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListeners()
+        initLayout()
+    }
+
+    private fun initLayout(){
+        val assetLoader = AssetLoader()
+        val homeData = assetLoader.getJsonString(requireContext(), "home.json")
+        if(!homeData.isNullOrEmpty()){
+            val jsonObject = JSONObject(homeData)
+            val title = jsonObject.getJSONObject("title")
+            val text = title.getString("text")
+            val iconUrl = title.getString("icon_url")
+
+            val topBanners = jsonObject.getJSONArray("top_banners")
+            val firstBanner = topBanners.getJSONObject(0)
+            firstBanner.getString("label")
+        }
+
     }
 
     private fun addListeners() {

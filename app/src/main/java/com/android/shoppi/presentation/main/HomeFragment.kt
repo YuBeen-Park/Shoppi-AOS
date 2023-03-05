@@ -1,6 +1,5 @@
 package com.android.shoppi.presentation.main
 
-import android.os.Build.VERSION_CODES.R
 import android.os.Bundle
 import android.view.View
 import com.android.shoppi.R

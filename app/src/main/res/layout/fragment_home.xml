@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.android.shoppi.presentation.home.HomeViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,6 +35,7 @@
                     android:paddingStart="16dp"
                     android:paddingTop="32dp"
                     android:paddingBottom="24dp"
+                    android:text="@{viewModel.title.text}"
                     tools:text="@string/home_info" />
 
                 <ImageView
@@ -36,7 +44,8 @@
                     android:layout_height="68dp"
                     android:layout_gravity="end"
                     android:layout_marginEnd="4dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    app:image="@{viewModel.title.iconUrl}" />
 
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>

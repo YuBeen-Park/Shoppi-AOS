@@ -25,6 +25,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun initLayout() {
+        binding.vpHomeBanner.adapter = HomeBannerAdapter().apply {
+            viewModel.topBanners.observe(requireActivity()) { topBanners ->
+                submitList(topBanners)
+            }
+        }
         binding.vpHomeBanner.offscreenPageLimit = 3
         val pageWidth = resources.getDimension(R.dimen.viewpager_item_width)
         val pageMargin = resources.getDimension(R.dimen.viewpager_item_margin)
@@ -58,11 +63,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             binding.tvToolbarHomeTitle.text = title.text
             binding.ivToolbarHomeIcon.setImage(title.iconUrl)
         }
-        binding.vpHomeBanner.adapter = HomeBannerAdapter().apply {
-            viewModel.topBanners.observe(requireActivity()) { topBanners ->
-                submitList(topBanners)
-            }
-        }
+
 
     }
 }

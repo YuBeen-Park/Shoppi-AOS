@@ -1,7 +1,6 @@
 package com.android.shoppi.presentation.category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.android.shoppi.R
@@ -14,8 +13,14 @@ class CategoryFragment : BindingFragment<FragmentCategoryBinding>(R.layout.fragm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initLayout()
+
+    }
+    fun initLayout(){
+        val categoryAdapter = CategoryAdapter()
+        binding.rvCategoryList.adapter = categoryAdapter
         viewModel.items.observe(viewLifecycleOwner){
-            Log.d("Category", "items=$it")
+            categoryAdapter.submitList(it)
         }
     }
 }

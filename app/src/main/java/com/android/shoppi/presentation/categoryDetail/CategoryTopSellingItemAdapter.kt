@@ -8,8 +8,8 @@ import com.android.shoppi.databinding.ItemCategoryTopSellingBinding
 import com.android.shoppi.presentation.category.Category
 import com.android.shoppi.presentation.category.CategoryDiffCallback
 
-class CategoryTopSelllingItemAdapter :
-    ListAdapter<Category, CategoryTopSelllingItemAdapter.TopSellingViewHolder>(CategoryDiffCallback()) {
+class CategoryTopSellingItemAdapter :
+    ListAdapter<Category, CategoryTopSellingItemAdapter.TopSellingViewHolder>(CategoryDiffCallback()) {
     class TopSellingViewHolder(private val binding: ItemCategoryTopSellingBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(category: Category) {

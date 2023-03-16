@@ -8,17 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.shoppi.databinding.ItemCategoryTopSellingSectionBinding
 import com.android.shoppi.network.TopSelling
 
-class CategoryTopSelllingSectionAdapter :
-    ListAdapter<TopSelling, CategoryTopSelllingSectionAdapter.TopSellingSectionViewHolder>(
+class CategoryTopSellingSectionAdapter :
+    ListAdapter<TopSelling, CategoryTopSellingSectionAdapter.TopSellingSectionViewHolder>(
         TopSellingDiffCallback()
     ) {
     class TopSellingSectionViewHolder(private val binding: ItemCategoryTopSellingSectionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val nestedAdapter = CategoryTopSelllingItemAdapter()
+        private val nestedAdapter = CategoryTopSellingItemAdapter()
 
         init {
-            binding.rvCategorySection.adapter = CategoryTopSelllingItemAdapter()
+            binding.rvCategorySection.adapter = nestedAdapter
         }
 
         fun bind(topSelling: TopSelling) {

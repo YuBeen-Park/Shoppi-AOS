@@ -16,7 +16,7 @@ fun ImageView.setImage(imageUrl: String) {
 }
 
 @BindingAdapter("imageCircle")
-fun ImageView.setCircleImage(imageUrl: String){
+fun ImageView.setCircleImage(imageUrl: String) {
     this.load(imageUrl) {
         transformations(CircleCropTransformation())
     }
@@ -35,11 +35,10 @@ fun applyPriceDiscountRate(view: TextView, price: Int, discountRate: Int) {
 }
 
 @BindingAdapter("isVisible")
-fun TextView.setVisibility(isVisible: Boolean){
-    if(isVisible){
+fun View.setVisibility(isVisible: Boolean) {
+    if (isVisible) {
         this.visibility = View.VISIBLE
-    }
-    else{
+    } else {
         this.visibility = View.GONE
     }
 }

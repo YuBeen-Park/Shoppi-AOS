@@ -12,8 +12,9 @@ import com.android.shoppi.util.binding.BindingFragment
 class CategoryDetailFragment :
     BindingFragment<FragmentCategoryDetailBinding>(R.layout.fragment_category_detail) {
 
-    val titleAdapter = CategorySectionTitleAdapter()
-    val promotionAdapter = CategoryPromotionAdapter()
+    private val titleAdapter = CategorySectionTitleAdapter()
+    private val promotionAdapter = CategoryPromotionAdapter()
+    private val topSellingSectionAdapter = CategoryTopSelllingSectionAdapter()
     private val viewModel: CategoryDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,11 +27,14 @@ class CategoryDetailFragment :
     private fun initLayout() {
         val categoryLabel = requireArguments().getString(KEY_CATEGORY_LABEL)
         binding.toolbarCategoryDetail.title = categoryLabel
-
-        binding.rvCategoryDetail.adapter = ConcatAdapter(titleAdapter, promotionAdapter)
+        binding.rvCategoryDetail.adapter =
+            ConcatAdapter(topSellingSectionAdapter, titleAdapter, promotionAdapter)
     }
 
     private fun observeData() {
+        viewModel.topSelling.observe(viewLifecycleOwner) { topSelling ->
+            topSellingSectionAdapter.submitList(listOf(topSelling))
+        }
         viewModel.promotions.observe(viewLifecycleOwner) { promotions ->
             titleAdapter.submitList(listOf(promotions.title))
             promotionAdapter.submitList(promotions.items)

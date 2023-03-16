@@ -1,0 +1,156 @@
+{
+  "categories": [
+    {
+      "category_id": "fashion-female",
+      "label": "여성패션",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017117-3c4180c3-565b-4ffa-8088-732960720b48.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "fashion-male",
+      "label": "남성패션",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017161-5862f353-ad2f-4be0-abd5-c38f2e6938be.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "kids",
+      "label": "유아동",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017845-2fb0f648-bbfe-492a-bcf2-5d9922a7e983.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "electronics",
+      "label": "가전/디지털",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017144-3428d42c-7d19-4e3a-a124-f8d039322839.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "furniture",
+      "label": "가구/인테리어",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017156-8d3d6fdc-5181-4aa6-92e1-0e1ce27d2eb0.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "sports",
+      "label": "스포츠/레저",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017109-fe5e6819-54c8-4467-8533-47cd3c67c545.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "books",
+      "label": "도서/음반",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017126-ccf29bbf-1df1-4f6d-b03d-3acd009201bd.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "pets",
+      "label": "반려동물",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017175-911017d7-70f2-4e1c-8470-ecacb4350164.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "cars",
+      "label": "자동차",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017129-5eb6c3d9-e012-4e83-82a7-0f435586c9ff.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "etc",
+      "label": "잡화",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017187-7c13cf8d-befd-40d1-9aa4-869cbb965ada.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "foods",
+      "label": "식품",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017150-61d6cdb1-239c-421f-b485-d40a1ddf6fe7.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "beauty",
+      "label": "뷰티",
+      "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/224017121-c97accea-417d-40dd-abd2-f3e03c2974c6.jpg",
+      "updated": true
+    }
+  ],
+  "fashion_female" : {
+    "top_selling": {
+      "title": {
+        "text" : "인기상품"
+      },
+      "categories" : [
+        {
+          "category_id": "fashion_jacket",
+          "label" : "자켓",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598529-3434a9b2-c881-4a52-911e-bb311a296230.png",
+          "updated": true
+        },
+        {
+          "category_id": "fashion_sweater",
+          "label" : "스웨터",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598535-d8006863-50f7-4d53-9bdf-611920383508.png",
+          "updated": false
+        },
+        {
+          "category_id": "fashion_cap",
+          "label" : "캡모자",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598527-2aa1e927-9c7b-49b1-81b3-390772436ccb.png",
+          "updated": false
+        },
+        {
+          "category_id": "fashion_belt",
+          "label" : "벨트",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598523-e8ac3303-a0a3-454e-8411-c302aba672d2.png",
+          "updated": true
+        },
+        {
+          "category_id": "fashion_shirt",
+          "label" : "셔츠",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598530-dc8cbe9e-8093-4e25-99f5-dfaef3e7a398.png",
+          "updated": false
+        },
+        {
+          "category_id": "fashion_skirt",
+          "label" : "스커트",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/74285061/225598532-a67585d2-5d25-4fdc-b31a-a997dab29a2a.png",
+          "updated": false
+        }
+      ]
+    },
+    "promosions": {
+      "title": {
+        "text": "추천상품"
+      },
+      "items": [
+        {
+          "label": "[19차 리오더]페이크 레더 숏 테일러 자켓 블랙",
+          "discount_rate": 10,
+          "price": 90000,
+          "representative_image_url": "https://user-images.githubusercontent.com/74285061/225598512-6db1bef3-f2bf-48ea-b5f5-aace1d90e979.png",
+          "product_id": "jacket_1"
+        },
+        {
+          "label": "캐시미어 100% 터틀넥 스웨터",
+          "discount_rate": 10,
+          "price": 70000,
+          "representative_image_url": "https://user-images.githubusercontent.com/74285061/225598515-c337bcc8-8fa0-476b-9a2e-d60e52ce2311.png",
+          "product_id": "sweater_1"
+        },
+        {
+          "label": "반팔 스트라이프 스웨터",
+          "discount_rate": 10,
+          "price": 30000,
+          "representative_image_url": "https://user-images.githubusercontent.com/74285061/225598517-3ac64f1d-1d10-4575-9fbf-68517f44cdee.png",
+          "product_id": "sweater_2"
+        },
+        {
+          "label": "화이트 스포츠 점퍼",
+          "discount_rate": 10,
+          "price": 150000,
+          "representative_image_url": "https://user-images.githubusercontent.com/74285061/225598519-8a98d957-6641-44d2-991b-fdded73ea491.png",
+          "product_id": "jumper_1"
+        }
+      ]
+    }
+  }
+}

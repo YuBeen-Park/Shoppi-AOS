@@ -61,7 +61,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun addObservers() {
         viewModel.title.observe(requireActivity()) { title ->
             binding.tvToolbarHomeTitle.text = title.text
-            binding.ivToolbarHomeIcon.setImage(title.iconUrl)
+            binding.ivToolbarHomeIcon.setImage(title.iconUrl!!)
         }
 
 

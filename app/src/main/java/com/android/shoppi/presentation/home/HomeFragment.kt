@@ -2,10 +2,13 @@ package com.android.shoppi.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentHomeBinding
+import com.android.shoppi.presentation.category.CategoryFragment
 import com.android.shoppi.util.binding.BindingFragment
 import com.android.shoppi.util.setImage
 import com.google.android.material.tabs.TabLayoutMediator
@@ -25,7 +28,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun initLayout() {
-        binding.vpHomeBanner.adapter = HomeBannerAdapter().apply {
+        binding.vpHomeBanner.adapter = HomeBannerAdapter(::openProductDetail).apply {
             viewModel.topBanners.observe(requireActivity()) { topBanners ->
                 submitList(topBanners)
             }
@@ -63,7 +66,17 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             binding.tvToolbarHomeTitle.text = title.text
             binding.ivToolbarHomeIcon.setImage(title.iconUrl!!)
         }
+    }
 
+    private fun openProductDetail(productId: String) {
+        findNavController().navigate(
+            R.id.action_home_to_product_detail, bundleOf(
+                HomeFragment.KEY_PRODUCT_ID to productId,
+            )
+        )
+    }
 
+    companion object{
+        const val KEY_PRODUCT_ID= "product_id"
     }
 }

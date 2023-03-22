@@ -9,10 +9,8 @@ import com.android.shoppi.presentation.category.CategoryRepository
 import com.android.shoppi.presentation.category.CategoryViewModel
 import com.android.shoppi.presentation.categoryDetail.CategoryDetailViewModel
 import com.android.shoppi.presentation.home.HomeViewModel
-import com.android.shoppi.repository.CategoryDetailRemoteDataSource
-import com.android.shoppi.repository.CategoryDetailRepository
-import com.android.shoppi.repository.HomeAssetDataSource
-import com.android.shoppi.repository.HomeRepository
+import com.android.shoppi.presentation.productDetail.ProductDetailViewModel
+import com.android.shoppi.repository.*
 import com.android.shoppi.util.AssetLoader
 
 class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
@@ -27,8 +25,14 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
                 CategoryViewModel(repository) as T
             }
             modelClass.isAssignableFrom(CategoryDetailViewModel::class.java) -> {
-                val repository = CategoryDetailRepository(CategoryDetailRemoteDataSource(ApiClient.create()))
+                val repository =
+                    CategoryDetailRepository(CategoryDetailRemoteDataSource(ApiClient.create()))
                 CategoryDetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProductDetailViewModel::class.java) -> {
+                val repository =
+                    ProductDetailRepository(ProductDetailRemoteDataSource(ServiceLocator.provideApiClient()))
+                ProductDetailViewModel(repository) as T
             }
             else -> {
                 throw java.lang.IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")

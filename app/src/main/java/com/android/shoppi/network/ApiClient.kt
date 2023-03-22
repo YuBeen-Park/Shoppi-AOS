@@ -1,6 +1,7 @@
 package com.android.shoppi.network
 
 import com.android.shoppi.presentation.category.Category
+import com.android.shoppi.presentation.main.Product
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,6 +19,9 @@ interface ApiClient {
 
     @GET("{categoryId}.json")
     suspend fun getCategoryDetail(@Path("categoryId") categoryId: String): CategoryDetail
+
+    @GET("products/{productId}.json")
+    suspend fun getProductDetail(@Path("productId") productId: String): Product
 
     companion object {
         private const val baseUrl =

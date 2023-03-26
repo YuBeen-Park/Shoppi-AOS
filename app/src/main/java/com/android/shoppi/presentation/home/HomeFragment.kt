@@ -5,10 +5,12 @@ import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ConcatAdapter
 import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentHomeBinding
 import com.android.shoppi.presentation.categoryDetail.CategoryPromotionAdapter
+import com.android.shoppi.presentation.categoryDetail.CategorySectionTitleAdapter
 import com.android.shoppi.presentation.main.ProductClickListener
 import com.android.shoppi.util.binding.BindingFragment
 import com.android.shoppi.util.setImage
@@ -36,10 +38,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             }
         }
         binding.vpHomeBanner.offscreenPageLimit = 3
-        binding.rvHomeData.adapter = CategoryPromotionAdapter(this).apply {
-            viewModel.products.observe(requireActivity()) { products ->
-                submitList(products)
-            }
+        val titleAdapter = CategorySectionTitleAdapter()
+        val promotionAdapter = CategoryPromotionAdapter(this)
+        binding.rvHomeData.adapter = ConcatAdapter(titleAdapter, promotionAdapter)
+        viewModel.promotions.observe(viewLifecycleOwner) { promotions ->
+            titleAdapter.submitList(listOf(promotions.title))
+            promotionAdapter.submitList(promotions.products)
         }
         val pageWidth = resources.getDimension(R.dimen.viewpager_item_width)
         val pageMargin = resources.getDimension(R.dimen.viewpager_item_margin)

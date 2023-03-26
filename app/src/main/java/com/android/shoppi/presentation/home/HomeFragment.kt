@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentHomeBinding
-import com.android.shoppi.presentation.category.CategoryFragment
+import com.android.shoppi.presentation.categoryDetail.CategoryPromotionAdapter
 import com.android.shoppi.util.binding.BindingFragment
 import com.android.shoppi.util.setImage
 import com.google.android.material.tabs.TabLayoutMediator
@@ -34,6 +34,11 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             }
         }
         binding.vpHomeBanner.offscreenPageLimit = 3
+        binding.rvHomeData.adapter = CategoryPromotionAdapter().apply {
+            viewModel.products.observe(requireActivity()) { products ->
+                submitList(products)
+            }
+        }
         val pageWidth = resources.getDimension(R.dimen.viewpager_item_width)
         val pageMargin = resources.getDimension(R.dimen.viewpager_item_margin)
         val screenWidth = resources.displayMetrics.widthPixels
@@ -76,7 +81,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
         )
     }
 
-    companion object{
-        const val KEY_PRODUCT_ID= "product_id"
+    companion object {
+        const val KEY_PRODUCT_ID = "product_id"
     }
 }

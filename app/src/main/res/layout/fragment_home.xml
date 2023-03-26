@@ -76,6 +76,16 @@
                     app:tabBackground="@drawable/selector_viewpager_indicator"
                     app:tabGravity="center"
                     app:tabIndicatorHeight="0dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_home_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vp_home_banner_indicator" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

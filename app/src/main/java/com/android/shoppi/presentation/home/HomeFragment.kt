@@ -9,11 +9,13 @@ import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentHomeBinding
 import com.android.shoppi.presentation.categoryDetail.CategoryPromotionAdapter
+import com.android.shoppi.presentation.main.ProductClickListener
 import com.android.shoppi.util.binding.BindingFragment
 import com.android.shoppi.util.setImage
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home),
+    ProductClickListener {
     private val viewModel: HomeViewModel by viewModels {
         ViewModelFactory(requireContext())
     }
@@ -34,7 +36,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             }
         }
         binding.vpHomeBanner.offscreenPageLimit = 3
-        binding.rvHomeData.adapter = CategoryPromotionAdapter().apply {
+        binding.rvHomeData.adapter = CategoryPromotionAdapter(this).apply {
             viewModel.products.observe(requireActivity()) { products ->
                 submitList(products)
             }
@@ -76,12 +78,16 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     private fun openProductDetail(productId: String) {
         findNavController().navigate(
             R.id.action_home_to_product_detail, bundleOf(
-                HomeFragment.KEY_PRODUCT_ID to productId,
+                KEY_PRODUCT_ID to "desk-1",
             )
         )
     }
 
     companion object {
         const val KEY_PRODUCT_ID = "product_id"
+    }
+
+    override fun onProductClick(productId: String) {
+        openProductDetail(productId)
     }
 }

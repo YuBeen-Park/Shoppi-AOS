@@ -11,7 +11,7 @@ import java.text.DecimalFormat
 import kotlin.math.roundToInt
 
 @BindingAdapter("image")
-fun ImageView.setImage(imageUrl: String) {
+fun ImageView.setImage(imageUrl: String?) {
     this.load(imageUrl)
 }
 

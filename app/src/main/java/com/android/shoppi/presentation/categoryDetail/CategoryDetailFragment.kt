@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.ConcatAdapter
 import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentCategoryDetailBinding
+import com.android.shoppi.presentation.main.ProductClickListener
 import com.android.shoppi.util.binding.BindingFragment
-import timber.log.Timber
 
 class CategoryDetailFragment :
-    BindingFragment<FragmentCategoryDetailBinding>(R.layout.fragment_category_detail) {
+    BindingFragment<FragmentCategoryDetailBinding>(R.layout.fragment_category_detail),
+    ProductClickListener {
 
     private val titleAdapter = CategorySectionTitleAdapter()
-    private val promotionAdapter = CategoryPromotionAdapter()
+    private val promotionAdapter = CategoryPromotionAdapter(this)
     private val topSellingSectionAdapter = CategoryTopSellingSectionAdapter()
     private val viewModel: CategoryDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,5 +46,9 @@ class CategoryDetailFragment :
     companion object {
         const val KEY_CATEGORY_ID = "category_id"
         const val KEY_CATEGORY_LABEL = "category_label"
+    }
+
+    override fun onProductClick(productId: String) {
+        TODO("Not yet implemented")
     }
 }

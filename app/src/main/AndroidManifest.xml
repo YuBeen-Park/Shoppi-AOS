@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Shoppi"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity android:name=".presentation.splash.SplashActivity"
+        <activity
+            android:name=".presentation.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Shoppi.Splash">
 
@@ -26,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.main.ProductDetailFragment"
+            android:name=".presentation.productDetail.ProductDetailFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

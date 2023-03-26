@@ -2,15 +2,22 @@ package com.android.shoppi.presentation.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ConcatAdapter
 import com.android.shoppi.R
 import com.android.shoppi.ViewModelFactory
 import com.android.shoppi.databinding.FragmentHomeBinding
+import com.android.shoppi.presentation.categoryDetail.CategoryPromotionAdapter
+import com.android.shoppi.presentation.categoryDetail.CategorySectionTitleAdapter
+import com.android.shoppi.presentation.main.ProductClickListener
 import com.android.shoppi.util.binding.BindingFragment
 import com.android.shoppi.util.setImage
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home),
+    ProductClickListener {
     private val viewModel: HomeViewModel by viewModels {
         ViewModelFactory(requireContext())
     }
@@ -25,12 +32,19 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
     }
 
     private fun initLayout() {
-        binding.vpHomeBanner.adapter = HomeBannerAdapter().apply {
+        binding.vpHomeBanner.adapter = HomeBannerAdapter(::openProductDetail).apply {
             viewModel.topBanners.observe(requireActivity()) { topBanners ->
                 submitList(topBanners)
             }
         }
         binding.vpHomeBanner.offscreenPageLimit = 3
+        val titleAdapter = CategorySectionTitleAdapter()
+        val promotionAdapter = CategoryPromotionAdapter(this)
+        binding.rvHomeData.adapter = ConcatAdapter(titleAdapter, promotionAdapter)
+        viewModel.promotions.observe(viewLifecycleOwner) { promotions ->
+            titleAdapter.submitList(listOf(promotions.title))
+            promotionAdapter.submitList(promotions.products)
+        }
         val pageWidth = resources.getDimension(R.dimen.viewpager_item_width)
         val pageMargin = resources.getDimension(R.dimen.viewpager_item_margin)
         val screenWidth = resources.displayMetrics.widthPixels
@@ -63,7 +77,21 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
             binding.tvToolbarHomeTitle.text = title.text
             binding.ivToolbarHomeIcon.setImage(title.iconUrl!!)
         }
+    }
 
+    private fun openProductDetail(productId: String) {
+        findNavController().navigate(
+            R.id.action_home_to_product_detail, bundleOf(
+                KEY_PRODUCT_ID to "desk-1",
+            )
+        )
+    }
 
+    companion object {
+        const val KEY_PRODUCT_ID = "product_id"
+    }
+
+    override fun onProductClick(productId: String) {
+        openProductDetail(productId)
     }
 }

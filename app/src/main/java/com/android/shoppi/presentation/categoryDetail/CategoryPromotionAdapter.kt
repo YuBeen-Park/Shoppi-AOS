@@ -7,15 +7,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.shoppi.databinding.ItemCategoryPromotionBinding
 import com.android.shoppi.presentation.main.Product
+import com.android.shoppi.presentation.main.ProductClickListener
 
 
-class CategoryPromotionAdapter :
+class CategoryPromotionAdapter(private val clickListener: ProductClickListener) :
     ListAdapter<Product, CategoryPromotionAdapter.CategoryPromotionViewHolder>(PromotionDiffUtil()) {
-    class CategoryPromotionViewHolder(private val binding: ItemCategoryPromotionBinding) :
+    inner class CategoryPromotionViewHolder(
+        private val binding: ItemCategoryPromotionBinding,
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.product = product
             binding.executePendingBindings()
+            binding.clickListener = clickListener
         }
     }
 

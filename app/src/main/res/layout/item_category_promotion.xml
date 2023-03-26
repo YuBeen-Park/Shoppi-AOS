@@ -6,15 +6,21 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="com.android.shoppi.presentation.main.ProductClickListener" />
+
+        <variable
             name="product"
             type="com.android.shoppi.presentation.main.Product" />
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_category_promotion"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"
+        android:onClick="@{() -> clickListener.onProductClick(product.productId)}"
         app:cardCornerRadius="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="header"
+            type="com.android.shoppi.presentation.main.CartHeader" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:text="@{header.brandName}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/checkbox_cart_section"

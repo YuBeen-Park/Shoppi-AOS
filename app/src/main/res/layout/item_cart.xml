@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="item"
+            type="com.android.shoppi.presentation.main.CartItem" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -33,6 +37,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_cart_item"
+                image="@{item.thumbnailImageUrl}"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
@@ -46,6 +51,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
+                android:text="@{item.label}"
                 app:layout_constraintEnd_toStartOf="@+id/btn_cart_item_delete"
                 app:layout_constraintStart_toEndOf="@+id/iv_cart_item"
                 app:layout_constraintTop_toTopOf="@+id/iv_cart_item"
@@ -65,6 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
+                android:text="@{item.type}"
                 android:textColor="@color/shoppi_grey_01"
                 app:layout_constraintEnd_toEndOf="@+id/tv_cart_item_title"
                 app:layout_constraintStart_toStartOf="@+id/tv_cart_item_title"
@@ -86,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:text="@{item.amount}"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_cart_item_minus"
                 app:layout_constraintStart_toEndOf="@+id/btn_cart_item_minus"
                 app:layout_constraintTop_toTopOf="@+id/btn_cart_item_minus"
@@ -103,6 +111,7 @@
             <TextView
                 android:id="@+id/tv_cart_item_price"
                 style="@style/TextSubtitle1.Bold"
+                priceAmount="@{item.price}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

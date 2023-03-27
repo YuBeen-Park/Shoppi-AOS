@@ -59,6 +59,10 @@
         <item name="android:textColor">@color/shoppi_black_01</item>
     </style>
 
+    <style name="TextSubtitle2.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextSubtitle2.Grey05">
         <item name="android:textColor">@color/shoppi_grey_05</item>
     </style>

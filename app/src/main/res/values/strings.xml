@@ -5,7 +5,7 @@
     <string name="description_product_detail_image">상품 상세 이미지</string>
     <string name="label_category_icon">카테고리</string>
     <string name="label_home_icon">홈</string>
-    <string name="label_cart_icon">장바구니</string>
+    <string name="label_cart">장바구니</string>
     <string name="home_info">Ivy님 이런 상품\n어때요?</string>
 
     <string name="unit_discount_rate">%d%%</string>
@@ -14,4 +14,5 @@
     <string name="label_category">카테고리</string>
     <string name="product_detail_image">상품 상세 이미지</string>
     <string name="product_detail_basket_button">장바구니 담기</string>
+    <string name="cart_order_selected_product">선택한 상품 주문하기</string>
 </resources>

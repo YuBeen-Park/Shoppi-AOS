@@ -19,6 +19,14 @@
         <item name="android:windowBackground">@drawable/background_splash_screen</item>
     </style>
 
+    <style name="Widget.Material.Button.Basic" parent="">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
     <style name="AppbarStyle" parent="Widget.Material3.AppBarLayout">
         <item name="background">@color/shoppi_white</item>
     </style>
